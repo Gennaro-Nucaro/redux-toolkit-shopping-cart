@@ -1,27 +1,27 @@
 const data = {
-  "items": [
-      {
-          "id": 1,
-          "name": "Google Pixel 9",
-          "price": 899.99
-      },
-      {
-          "id": 2,
-          "name": "Apple iPhone 15",
-          "price": 769.99
-      },
-      {
-          "id": 3,
-          "name": "Samsung Galaxy S23",
-          "price": 699.99
-      },
-      {
-          "id": 4,
-          "name": "Xiaomi 14",
-          "price": 709.99
-      }
-  ]
-}
+  items: [
+    {
+      id: 1,
+      name: "Google Pixel 9",
+      price: 899.99,
+    },
+    {
+      id: 2,
+      name: "Apple iPhone 15",
+      price: 769.99,
+    },
+    {
+      id: 3,
+      name: "Samsung Galaxy S23",
+      price: 699.99,
+    },
+    {
+      id: 4,
+      name: "Xiaomi 14",
+      price: 709.99,
+    },
+  ],
+};
 
 const Itemlist = () => {
   return (
@@ -29,7 +29,10 @@ const Itemlist = () => {
       <ul className="list-group">
         {data.items.map((item) => {
           return (
-            <li className="list-group-item item d-flex justify-content-between align-items-center fs-5">
+            <li
+              key={item.id}
+              className="list-group-item item d-flex justify-content-between align-items-center fs-5"
+            >
               <div>
                 {item.name}
                 <span className="text-secondary p-2 fs-6">{item.price} €</span>

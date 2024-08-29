@@ -38,29 +38,23 @@ const CartItemListView = () => {
       <ul className="list-group cart-item-list-view">
         {data.map((item) => {
           return (
-            <li className="list-group-item item d-flex justify-content-between align-items-center fs-5">
+            <li
+              key={item.id}
+              className="list-group-item item d-flex justify-content-between align-items-center fs-5"
+            >
               <div>
                 <span>{item.name}</span>
                 <span className="text-secondary p-2 fs-6">{item.price} €</span>
               </div>
               <div className="d-flex align-items-baseline button-container gap-1">
                 <span className="d-inline p-2">Qty. {item.quantity}</span>
-                <button
-                  type="button"
-                  className="btn btn-warning fs-5"
-                >
+                <button type="button" className="btn btn-warning fs-5">
                   -
                 </button>
-                <button
-                  type="button"
-                  className="btn btn-success fs-5"
-                >
+                <button type="button" className="btn btn-success fs-5">
                   +
                 </button>
-                <button
-                  type="button"
-                  className="btn btn-danger fs-5"
-                >
+                <button type="button" className="btn btn-danger fs-5">
                   remove
                 </button>
               </div>
