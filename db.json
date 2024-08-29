@@ -1,0 +1,24 @@
+{
+    "items": [
+        {
+            "id": 1,
+            "name": "Google Pixel 9",
+            "price": 899.99
+        },
+        {
+            "id": 2,
+            "name": "Apple iPhone 15",
+            "price": 769.99
+        },
+        {
+            "id": 3,
+            "name": "Samsung Galaxy S23",
+            "price": 699.99
+        },
+        {
+            "id": 4,
+            "name": "Xiaomi 14",
+            "price": 709.99
+        }
+    ]
+}

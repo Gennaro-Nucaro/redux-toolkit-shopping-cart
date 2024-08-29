@@ -1,0 +1,30 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.large-icon {
+  font-size: 35px;
+  color: white;
+}
+
+.item {
+  min-width: 500px;
+}
+
+.list-group {
+  min-width: 50%;
+}
+
+.cart-item-list-view {
+  min-width: 650px;
+  margin-top: 20px;
+}
+
+.button-container {
+  min-width: 300px;
+}
+
+.button-container button {
+  flex-grow: 1;
+}
