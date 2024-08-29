@@ -1,24 +1,32 @@
 {
-    "items": [
+    "cart": {
+      "items": [
         {
-            "id": 1,
-            "name": "Google Pixel 9",
-            "price": 899.99
+          "id": 1,
+          "name": "Google Pixel 9",
+          "price": 899.99,
+          "qty": 3
         },
         {
-            "id": 2,
-            "name": "Apple iPhone 15",
-            "price": 769.99
+          "id": 3,
+          "name": "Samsung Galaxy S23",
+          "price": 699.99,
+          "qty": 2
         },
         {
-            "id": 3,
-            "name": "Samsung Galaxy S23",
-            "price": 699.99
+          "id": 2,
+          "name": "Apple iPhone 15",
+          "price": 769.99,
+          "qty": 2
         },
         {
-            "id": 4,
-            "name": "Xiaomi 14",
-            "price": 709.99
+          "id": 4,
+          "name": "Xiaomi 14",
+          "price": 709.99,
+          "qty": 1
         }
-    ]
-}
+      ],
+      "total": 8,
+      "amount": 6349.92
+    }
+  }
