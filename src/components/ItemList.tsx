@@ -1,3 +1,6 @@
+import { useDispatch } from "react-redux";
+import { addItem } from "../store/cart/cartSlice";
+
 const data = {
   items: [
     {
@@ -24,6 +27,8 @@ const data = {
 };
 
 const Itemlist = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
       <ul className="list-group">
@@ -38,7 +43,18 @@ const Itemlist = () => {
                 <span className="text-secondary p-2 fs-6">{item.price} €</span>
               </div>
 
-              <button type="button" className="btn btn-primary">
+              <button
+                onClick={() =>
+                  dispatch(
+                    addItem({
+                      ...item,
+                      qty: 1,
+                    })
+                  )
+                }
+                type="button"
+                className="btn btn-primary"
+              >
                 Add to cart
               </button>
             </li>
