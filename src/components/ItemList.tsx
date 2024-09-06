@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addItem } from "../store/cart/cartSlice";
+import { addItem } from "../store/cart/actions";
 
 const data = {
   items: [

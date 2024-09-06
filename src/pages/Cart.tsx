@@ -2,7 +2,7 @@ import CartItemListView from "../components/CartItemListView";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
 import { useDispatch } from "react-redux";
-import { deleteCart } from "../store/cart/cartSlice";
+import { deleteCart } from "../store/cart/actions";
 
 function Cart() {
   const amount = useSelector((state: RootState) => state.cart.amount);

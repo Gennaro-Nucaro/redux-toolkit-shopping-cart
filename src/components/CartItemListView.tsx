@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
 import { useDispatch } from "react-redux";
-import { addItem, removeAll, removeItem } from "../store/cart/cartSlice";
+import { removeItem, addItem, removeAll } from "../store/cart/actions";
 
 const CartItemListView = () => {
   const items = useSelector((state: RootState) => state.cart.items);
