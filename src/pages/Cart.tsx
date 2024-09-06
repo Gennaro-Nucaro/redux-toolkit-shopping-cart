@@ -1,10 +1,13 @@
 import CartItemListView from "../components/CartItemListView";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
+import { useDispatch } from "react-redux";
+import { deleteCart } from "../store/cart/cartSlice";
 
 function Cart() {
   const amount = useSelector((state: RootState) => state.cart.amount);
   const total = useSelector((state: RootState) => state.cart.total);
+  const dispatch = useDispatch();
 
   return (
     <div className="m-2">
@@ -18,7 +21,13 @@ function Cart() {
           <button type="button" className="btn btn-success flex-shrink-0 fs-5">
             Save Cart
           </button>
-          <button type="button" className="btn btn-danger flex-shrink-0 fs-5">
+          <button
+            onClick={() => {
+              dispatch(deleteCart());
+            }}
+            type="button"
+            className="btn btn-danger flex-shrink-0 fs-5"
+          >
             Delete all
           </button>
         </div>

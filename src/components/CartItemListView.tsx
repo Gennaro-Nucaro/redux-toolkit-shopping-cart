@@ -1,8 +1,11 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
+import { useDispatch } from "react-redux";
+import { addItem, removeAll, removeItem } from "../store/cart/cartSlice";
 
 const CartItemListView = () => {
   const items = useSelector((state: RootState) => state.cart.items);
+  const dispatch = useDispatch();
 
   return (
     <div className="d-flex flex-column flex-md-row gap-4 align-items-center justify-content-center">
@@ -19,13 +22,31 @@ const CartItemListView = () => {
               </div>
               <div className="d-flex align-items-baseline button-container gap-1">
                 <span className="d-inline p-2">Qty. {item.qty}</span>
-                <button type="button" className="btn btn-warning fs-5">
+                <button
+                  onClick={() => {
+                    dispatch(removeItem(item.id));
+                  }}
+                  type="button"
+                  className="btn btn-warning fs-5"
+                >
                   -
                 </button>
-                <button type="button" className="btn btn-success fs-5">
+                <button
+                  onClick={() => {
+                    dispatch(addItem({ ...item, qty: 1 }));
+                  }}
+                  type="button"
+                  className="btn btn-success fs-5"
+                >
                   +
                 </button>
-                <button type="button" className="btn btn-danger fs-5">
+                <button
+                  onClick={() => {
+                    dispatch(removeAll(item.id));
+                  }}
+                  type="button"
+                  className="btn btn-danger fs-5"
+                >
                   remove
                 </button>
               </div>
