@@ -3,18 +3,16 @@ import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Navbar from "./components/Navbar";
 // import Modal from "./components/Modal";
-import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { AppDispatch } from "./store";
 import { fetchCartData } from "./store/cart/actions";
-
+import { useAppDispatch } from "./store/hooks";
 
 function App() {
-  const dispatch: AppDispatch  = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchCartData());
-}, [dispatch]);
+  }, [dispatch]);
 
   return (
     <Router>

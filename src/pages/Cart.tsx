@@ -1,14 +1,12 @@
 import CartItemListView from "../components/CartItemListView";
-import { useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../store";
-import { useDispatch } from "react-redux";
 import { deleteCart, saveCart } from "../store/cart/actions";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
 
 function Cart() {
-  const amount = useSelector((state: RootState) => state.cart.amount);
-  const total = useSelector((state: RootState) => state.cart.total);
-  const isLoading = useSelector((state: RootState) => state.cart.isLoading);
-  const dispatch: AppDispatch = useDispatch();
+  const amount = useAppSelector((state) => state.cart.amount);
+  const total = useAppSelector((state) => state.cart.total);
+  const isLoading = useAppSelector((state) => state.cart.isLoading);
+  const dispatch = useAppDispatch();
 
   if (isLoading) {
     return <p>Loading...</p>;

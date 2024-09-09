@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { RootState } from "../store";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../store/hooks";
 
 const Navbar = () => {
-  const total = useSelector((state: RootState) => state.cart.total);
+  const total = useAppSelector((state) => state.cart.total);
 
   return (
     <nav className="navbar bg-primary" data-bs-theme="dark">

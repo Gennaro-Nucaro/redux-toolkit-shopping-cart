@@ -1,5 +1,5 @@
-import { useDispatch } from "react-redux";
 import { addItem } from "../store/cart/actions";
+import { useAppDispatch } from "../store/hooks";
 
 const data = {
   items: [
@@ -27,7 +27,7 @@ const data = {
 };
 
 const Itemlist = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <div className="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">

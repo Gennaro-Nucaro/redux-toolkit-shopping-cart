@@ -1,11 +1,9 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../store";
-import { useDispatch } from "react-redux";
 import { removeItem, addItem, removeAll } from "../store/cart/actions";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
 
 const CartItemListView = () => {
-  const items = useSelector((state: RootState) => state.cart.items);
-  const dispatch = useDispatch();
+  const items = useAppSelector((state) => state.cart.items);
+  const dispatch = useAppDispatch();
 
   return (
     <div className="d-flex flex-column flex-md-row gap-4 align-items-center justify-content-center">
