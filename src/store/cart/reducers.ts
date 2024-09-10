@@ -1,5 +1,6 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 import { CartState, Item } from "./cartSlice";
+import { CartApiData } from "./actions";
 
 const updateTotals = (state: CartState) => {
     state.total = state.items.reduce((total, item) => total + item.qty, 0);
@@ -42,4 +43,24 @@ export const deleteCartReducer = (state: CartState) => {
     state.items = [];
     state.total = 0;
     state.amount = 0;
+};
+
+export const startLoadingReducer  = (state: CartState) => {
+    state.isLoading = true;
+};
+
+export const stopLoadingReducer = (state: CartState) => {
+    state.isLoading = false;
+};
+
+export const fetchCartDataFulfilledReducer = (state: CartState, action: PayloadAction<CartApiData>) => {
+    state.items = action.payload.items;
+    state.total = action.payload.total;
+    state.amount = action.payload.amount;
+    state.isLoading = false;
+};
+
+export const saveCartFulfilledReducer = (state: CartState) => {
+    state.isLoading = false;
+    alert("Cart saved!");
 };

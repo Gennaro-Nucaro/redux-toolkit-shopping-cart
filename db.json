@@ -5,22 +5,28 @@
         "id": 1,
         "name": "Google Pixel 9",
         "price": 899.99,
-        "qty": 8
+        "qty": 1
       },
       {
         "id": 2,
         "name": "Apple iPhone 15",
         "price": 769.99,
-        "qty": 2
+        "qty": 1
       },
       {
         "id": 3,
         "name": "Samsung Galaxy S23",
         "price": 699.99,
-        "qty": 2
+        "qty": 1
+      },
+      {
+        "id": 4,
+        "name": "Xiaomi 14",
+        "price": 709.99,
+        "qty": 1
       }
     ],
-    "total": 12,
-    "amount": 10139.88
+    "total": 4,
+    "amount": 3079.96
   }
 }

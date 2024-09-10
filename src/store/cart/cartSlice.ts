@@ -1,9 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, isPending, isRejected } from "@reduxjs/toolkit";
 import {
   addItemReducer,
   deleteCartReducer,
+  fetchCartDataFulfilledReducer,
   removeAllReducer,
   removeItemReducer,
+  saveCartFulfilledReducer,
+  startLoadingReducer,
+  stopLoadingReducer,
 } from "./reducers";
 import {
   addItem,
@@ -45,32 +49,10 @@ export const cartSlice = createSlice({
       .addCase(removeItem, removeItemReducer)
       .addCase(removeAll, removeAllReducer)
       .addCase(deleteCart, deleteCartReducer)
-      //get cart
-      .addCase(fetchCartData.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(fetchCartData.fulfilled, (state, action) => {
-        // Handle the fulfilled state by setting the cart data
-        state.items = action.payload.items;
-        state.total = action.payload.total;
-        state.amount = action.payload.amount;
-        state.isLoading = false;
-      })
-      .addCase(fetchCartData.rejected, (state) => {
-        state.isLoading = false;
-      })
-      //save cart
-      .addCase(saveCart.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(saveCart.fulfilled, (state) => {
-        // Handle the fulfilled state by setting the cart data
-        state.isLoading = false;
-        alert("cart saved !!!");
-      })
-      .addCase(saveCart.rejected, (state) => {
-        state.isLoading = false;
-      });
+      .addCase(fetchCartData.fulfilled, fetchCartDataFulfilledReducer)
+      .addCase(saveCart.fulfilled, saveCartFulfilledReducer)
+      .addMatcher(isPending, startLoadingReducer)
+      .addMatcher(isRejected, stopLoadingReducer);
   },
 });
 export { addItem, removeItem, removeAll, deleteCart };

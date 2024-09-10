@@ -2,7 +2,7 @@ import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 import { Item } from "./cartSlice";
 import { RootState } from "..";
 
-interface CartApiData {
+export interface CartApiData {
   items: Item[];
   total: number;
   amount: number;
