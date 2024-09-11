@@ -1,5 +1,6 @@
 import { closeModal } from "../store/modal/modalSlice";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { useEffect } from "react";
 
 interface ModalProps {
   children: React.ReactNode;
@@ -13,6 +14,12 @@ const Modal: React.FC<ModalProps> = ({ children, onConfirm }) => {
     onConfirm();
     dispatch(closeModal());
   };
+
+  useEffect(() => {
+    return () => {
+      dispatch(closeModal());
+    };
+  }, [dispatch]);
 
   if (!isOpen) return null;
 
